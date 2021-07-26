@@ -1,10 +1,15 @@
-import {UserList} from './pages/User/index'
+import { BrowserRouter } from 'react-router-dom'
+import Routes from './routes'
+
+import { DataProvider } from './hooks/dataHook'
 
 const App: React.FC = () => {
   return (
-    <>
-    <UserList />
-    </>
+    <BrowserRouter>
+      <DataProvider>
+        <Routes />
+      </DataProvider>
+    </BrowserRouter>
   )
 }
 

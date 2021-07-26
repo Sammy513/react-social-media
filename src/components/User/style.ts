@@ -29,9 +29,10 @@ export const Container = styled.main`
     grid-template-columns: repeat(3, 1fr);
 }
 
-@media (max-width: 510px) {
+@media (max-width: 530px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
 }
 
 @media (max-width: 400px) {
@@ -39,12 +40,7 @@ export const Container = styled.main`
     grid-template-columns: repeat(2, 1fr);
 }
 
-@media (max-width: 364px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-@media (max-width: 340px) {
+@media (max-width: 375px) {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
 }
@@ -55,12 +51,14 @@ margin-top: 150px;
 display: grid;
 grid-template-columns: repeat(5, 1fr);
 
-div {
+a {
     max-width: 150px;
     margin-top: 40px;
     transition: filter 0.4s;
     background: #f0f0f5;
     border-radius: 5px;
+    text-decoration: none;
+    color: #000000;
 
     &:hover {
     filter: brightness(0.9);
