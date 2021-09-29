@@ -2,36 +2,32 @@
 import { useState, useEffect ,useContext, ReactNode ,createContext } from "react"
 import api from "../services/api"
 
-interface Data {
-    name: string,
-    username: string,
-    email: string,
-    address: {
-      street: string,
-      suite: string,
-      city: string,
-      zipcode: string,
-    },
-    phone: string,
-    company: {
-      name: string,
-      catchPhrase: string,
-    }
-}
-
 interface DataContextProps {
     children?: ReactNode
 }
 
+export interface Data {
+    id: number,
+    name: string,
+    username: string,
+    address: {
+    city: string
+    }
+}
 
-const DataContext = createContext<Data[]>([])
+
+interface UseContextData {
+    data: Data[],
+}
+
+const DataContext = createContext<UseContextData>({} as UseContextData)
 
 export const DataProvider: React.FC = ({children}: DataContextProps) => {
 
     const [data, setData] = useState<Data[]>([])
 
     useEffect(() => {
-        api.get<Data[]>('users')
+        api.get<Data[]>('https://jsonplaceholder.typicode.com/users')
         .then(response => setData(response.data))
     }, [])
 

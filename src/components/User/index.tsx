@@ -3,11 +3,11 @@ import { Container} from './style'
 
 import UserImg from '../../assets/user.png'
 
-import {UserData} from '../../pages/User/index'
-import { Link } from 'react-router-dom'
+
+import {Data} from '../../hooks/dataHook'
 
 interface UserProps {
-    data: UserData[]
+    data: Data[]
 }
 
 export const User: React.FC<UserProps> = ({data}) => {
@@ -15,12 +15,12 @@ export const User: React.FC<UserProps> = ({data}) => {
         <>
             <Container>
             {data.map(user => (
-                <Link to={`/profile/${user.id}`} key={user.username}>
+                <a href={`chat/${user.id}`} key={user.username}>
                     <img src={UserImg} alt="User" />
                     <strong>{user.name}</strong>
                     <p>{user.username}</p>
                     <p>{user.address.city}</p>
-                </Link>
+                </a>
             ))}
             </Container>
         </>

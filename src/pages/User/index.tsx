@@ -8,24 +8,13 @@ import {FaUser} from 'react-icons/fa'
 import { Header } from './style'
 
 import {useProvider} from '../../hooks/dataHook'
-
-
-interface AddressProps {
-  city: string
-}
-
-export interface UserData {
-  name:string,
-  username: string,
-  id: string,
-  address: AddressProps
-}
+import {Data} from '../../hooks/dataHook'
 
 export const UserList: React.FC = () => {
 
   const {data} = useProvider()
   
-  const [userSearch, setUserSearch] = useState<UserData[]>([])
+  const [userSearch, setUserSearch] = useState<Data[]>([])
 
   const[val, setVal] = useState('')
 
@@ -38,7 +27,7 @@ export const UserList: React.FC = () => {
   const searchUser = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const result = data.find(user => user.username === val) as UserData
+    const result = data.find(user => user.username === val) as Data
     setUserSearch([result])
 }, [val,data])
 

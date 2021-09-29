@@ -2,13 +2,13 @@
 import {Switch, Route} from 'react-router-dom'
 
 import {UserList} from '../pages/User/index'
-import {Profile} from '../pages/Profile/index'
+import {Chat} from '../pages/ChatPage/index'
 
 const Routes: React.FC = () => {
     return(
         <Switch>
             <Route path="/" exact component={UserList}/>
-            <Route path="/profile/:profile+" component={Profile}/>
+            <Route path="/chat/:chat+" component={Chat}/>
         </Switch>
     )
 }

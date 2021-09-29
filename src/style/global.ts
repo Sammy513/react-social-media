@@ -20,6 +20,7 @@ button {
 
 #root {
     max-width: 1120px;
+    height: 100vh;
     margin: 0 auto;
     background: #00bfff;
     padding: 2rem;
